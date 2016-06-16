@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+.cache
+.ropeproject
+venv
+.DS_Stote
+.env

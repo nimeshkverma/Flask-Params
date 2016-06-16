@@ -41,6 +41,6 @@ def process_params(param_config=None, header_config=None, check_all_fields=True,
                 else:
                     return f(params=params, *args, **kwargs)
             except ValidationError as e:
-                raise ErrorMessage(msg)
+                raise ErrorMessage(e)
         return decorated_function
     return deco

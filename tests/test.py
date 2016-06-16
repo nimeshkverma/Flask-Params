@@ -12,27 +12,27 @@ from flask_params import flask_params
 test_get1_config = {
     'type': 'object',
             'properties': {
-                'customerId': {'type': 'string'},
-                'productId': {'type': 'string'},
-                'qty': {'type': 'number'}
+                'categoryId': {'type': 'string'},
+                'productId': {'type': 'number'}
             },
-    'required': ['customerId', 'productId', 'qty']
+    'required': ['categoryId']
 }
 
 
-# @flask_params.process_params(param_config=test_get1_config)
 @app.route('/test_get1', methods=['GET'])
-def get_view1(params, header_params):
-    print request
+@flask_params.process_params(param_config=test_get1_config)
+def get_view1(params):
+    print params
     res = {
         'results':
         {
             "params": params,
-            "header_params": header_params
+            "header_params": "header_params"
         }
     }
     print jsonify(res)
     return jsonify(res)
+    # return "Hello"
 
 
 @app.route('/test_post1', methods=['POST'])
@@ -42,7 +42,17 @@ def post_view1():
 
 
 if __name__ == '__main__':
-    app.run(
-        host="localhost",
-        port=int("8080")
-    )
+    print 1
+    app.config['DEBUG'] = True
+    app.run()
+
+
+class A(object):
+    def __init__(self):
+        self.b =1000
+    def a(self):
+        self.b+=1
+        return self
+    def c(self):
+        self.b+=17
+        return self
