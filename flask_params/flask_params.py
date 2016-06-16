@@ -5,7 +5,7 @@ from jsonschema import validate, ValidationError, FormatChecker
 from exception import ErrorMessage
 
 
-def process_params(param_config=None, header_config=None, check_all_fields=True, *args, **kwargs):
+def process(param_config=None, header_config=None, check_all_fields=True, *args, **kwargs):
     def deco(f):
         def extract_params(request):
             if request.method == 'POST':

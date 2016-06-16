@@ -6,7 +6,7 @@ import sys
 SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
 sys.path = [os.path.join(SCRIPT_DIR + '/../')] + sys.path
 
-from flask_params import flask_params
+from flask_params import request_params
 
 
 test_get1_config = {
@@ -20,7 +20,7 @@ test_get1_config = {
 
 
 @app.route('/test_get1', methods=['GET'])
-@flask_params.process_params(param_config=test_get1_config)
+@request_params(param_config=test_get1_config)
 def get_view1(params):
     print params
     res = {
@@ -48,11 +48,14 @@ if __name__ == '__main__':
 
 
 class A(object):
+
     def __init__(self):
-        self.b =1000
+        self.b = 1000
+
     def a(self):
-        self.b+=1
+        self.b += 1
         return self
+
     def c(self):
-        self.b+=17
+        self.b += 17
         return self
