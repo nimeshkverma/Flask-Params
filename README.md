@@ -4,7 +4,7 @@ Processes the Request params for Flask served as a Python library
 
 `pip install flask-params`
 
-# Instructions:
+### Instructions:
 - Install the package
 - Import the `process` decorator from flask_params
   `from flask_params.flask_params import process`
@@ -16,4 +16,5 @@ Processes the Request params for Flask served as a Python library
   
   Where `param_config` and `header_config` are the JSON Schema for the params and headers respectively.
 
-Pypi Page: https://pypi.python.org/pypi/flask_params/1.0.1
+### Pypi Page: 
+https://pypi.python.org/pypi/flask_params/1.0.1
